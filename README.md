@@ -1,7 +1,11 @@
 # spec-workflow
 
-Claude Code plugin: 3-stage workflow to turn a feature idea into an
-implementation-ready ticket and plan, before any code is written.
+**Don't lose your brain.** A Claude Code plugin that keeps you the one
+doing the thinking — the model scaffolds, surfaces gaps, and writes down
+decisions, but every product/architecture call stays yours.
+
+3-stage workflow to turn a feature idea into an implementation-ready
+ticket and plan, before any code is written.
 
 ```
 note.md  →  questions.md  →  ticket.md + plan.md
