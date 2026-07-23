@@ -1,0 +1,16 @@
+{
+  "name": "spec-workflow",
+  "description": "3-stage feature spec workflow: note-taking scaffold, codebase-grounded question analysis, and ticket/plan generation",
+  "version": "1.0.0",
+  "author": {
+    "name": "myr0IX"
+  },
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "spec",
+    "workflow",
+    "planning",
+    "ticket"
+  ]
+}

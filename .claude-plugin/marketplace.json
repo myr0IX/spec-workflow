@@ -1,0 +1,18 @@
+{
+  "name": "spec-workflow-marketplace",
+  "description": "Marketplace for the spec-workflow plugin",
+  "owner": {
+    "name": "myr0IX"
+  },
+  "plugins": [
+    {
+      "name": "spec-workflow",
+      "description": "3-stage feature spec workflow: note-taking scaffold, codebase-grounded question analysis, and ticket/plan generation",
+      "version": "1.0.0",
+      "source": "./",
+      "author": {
+        "name": "myr0IX"
+      }
+    }
+  ]
+}
