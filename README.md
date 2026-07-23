@@ -26,10 +26,18 @@ scaffold, surface gaps, and write down what was already decided.
 ## Language
 
 Templates exist in French and English today (`templates/fr/`,
-`templates/en/` in each skill). `spec-workflow:start` picks the language
-that matches how you write to it; every later stage matches whatever
-language `note.md` was written in, it doesn't re-detect from the current
-conversation. Any language other than French defaults to English.
+`templates/en/` in each skill, including `spec-workflow:analyze`'s
+`questions.template.md`). `spec-workflow:start` picks the language that
+matches how you write to it; every later stage matches whatever language
+`note.md` was written in, it doesn't re-detect from the current
+conversation. Any language without a matching `templates/` subfolder
+defaults to English.
+
+Adding a language is just data, not a skill rewrite: drop a
+`templates/<lang>/` folder with the translated template file(s) in each of
+the 3 skills (`start`, `analyze`, `ticket-plan`). The skills discover
+supported languages by listing their own `templates/` subfolders, so
+nothing else needs to change.
 
 ## Why this design
 

@@ -30,9 +30,10 @@ already written (use **spec-workflow:analyze** directly instead).
 
 1. Ask the user for the feature slug (kebab-case) and the specs root if not
    obvious.
-2. Pick the template language: French if the user is writing to you in
-   French, English otherwise. Only `fr` and `en` templates exist right now,
-   so any other language defaults to `en`.
+2. Pick the template language: match it against the subfolders of
+   `templates/` in this skill's own directory (each subfolder name is a
+   supported language code, e.g. `fr`, `en`). If the user's language has no
+   matching subfolder, default to `en`.
 3. Create `<root>/<slug>/`.
 4. Copy `templates/<lang>/note.template.md` to `<root>/<slug>/note.md`.
 5. Tell the user the file is ready to fill in. Do not fill it in yourself,

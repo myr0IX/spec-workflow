@@ -26,9 +26,12 @@ non-empty reason field (`Pourquoi` / `Why`).
 ## Process
 
 1. Determine the language: match whatever `note.md` and `questions.md` are
-   already written in (`fr` or `en`). Use that same language's template
-   folder in step 6, don't re-detect from the current conversation, the
-   whole flow for one feature should stay in one language.
+   already written in against the subfolders of `templates/` in this
+   skill's own directory (each subfolder name is a supported language code,
+   e.g. `fr`, `en`). If there's no matching subfolder, default to `en`. Use
+   that same language's template folder in step 7, don't re-detect from the
+   current conversation, the whole flow for one feature should stay in one
+   language.
 2. Read `questions.md`. **If any entry is still open, or resolved with an
    empty reason field, stop and list exactly which ones.** Do not guess a
    product decision on the user's behalf, and do not treat an unexplained
