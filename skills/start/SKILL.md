@@ -30,9 +30,12 @@ already written (use **spec-workflow:analyze** directly instead).
 
 1. Ask the user for the feature slug (kebab-case) and the specs root if not
    obvious.
-2. Create `<root>/<slug>/`.
-3. Copy `templates/note.template.md` to `<root>/<slug>/note.md`.
-4. Tell the user the file is ready to fill in. Do not fill it in yourself,
+2. Pick the template language: French if the user is writing to you in
+   French, English otherwise. Only `fr` and `en` templates exist right now,
+   so any other language defaults to `en`.
+3. Create `<root>/<slug>/`.
+4. Copy `templates/<lang>/note.template.md` to `<root>/<slug>/note.md`.
+5. Tell the user the file is ready to fill in. Do not fill it in yourself,
    this is the user's own research to do. If the user explicitly asks you
    to dig into a specific file they've already identified (they know it
    matters but don't have time to read it themselves), that's fine, do that

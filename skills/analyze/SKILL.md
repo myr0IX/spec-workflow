@@ -27,26 +27,30 @@ only surfaces and grounds the questions.
 
 ## Process
 
-1. Read `note.md`. Read every file it references, not just skim titles.
-2. Look for a "Précédent similaire" pointer; if present, read that
-   feature's `ticket.md`/`plan.md` as a structural reference for what kinds
-   of decisions tend to matter (scopes, idempotence, error handling...).
-3. Walk the checklist below explicitly, for each row, decide if it applies
+1. Detect the language `note.md` is written in (French or English).
+   `questions.md` must be written in that same language, using the matching
+   Output Format below, don't switch language based on the current
+   conversation.
+2. Read `note.md`. Read every file it references, not just skim titles.
+3. Look for a "similar precedent" pointer; if present, read that feature's
+   `ticket.md`/`plan.md` as a structural reference for what kinds of
+   decisions tend to matter (scopes, idempotence, error handling...).
+4. Walk the checklist below explicitly, for each row, decide if it applies
    here, and if unclear, that's a candidate question. A baseline test run
    without this checklist found gaps in exactly these categories, so treat
    it as required, not optional.
-4. For each real gap: write one question in the format below, grounded in
-   `fichier:ligne`. One question = one decision, not a bundle. Tag it
-   **factuelle** if a lookup or a single grep settles it, or **arbitrage**
-   if it needs actual judgment (a tradeoff, a product call, something a
-   lookup can't resolve). This distinction is for the user: not every entry
-   in `questions.md` deserves the same level of attention, and treating a
-   real arbitrage as if it were a quick lookup is how decisions get
-   rubber-stamped instead of made.
-5. If `questions.md` already exists, append only new questions (don't touch
+5. For each real gap: write one question in the format below, grounded in
+   `file:line`. One question = one decision, not a bundle. Tag it factual
+   (a lookup or a single grep settles it) or a tradeoff (it needs actual
+   judgment: a product call, a real alternative, something a lookup can't
+   resolve). This distinction is for the user: not every entry in
+   `questions.md` deserves the same level of attention, and treating a real
+   tradeoff as if it were a quick lookup is how decisions get rubber-stamped
+   instead of made.
+6. If `questions.md` already exists, append only new questions (don't touch
    existing entries, don't renumber). Do this directly, no need to ask
    permission first, that's what the file is for.
-6. If `questions.md` doesn't exist yet, create it with the header below.
+7. If `questions.md` doesn't exist yet, create it with the header below.
 
 ## Checklist (walk every row)
 
@@ -67,6 +71,8 @@ only surfaces and grounds the questions.
 | Vocabulary | Do internal names diverge from public-facing names (a naming trap)? |
 
 ## Output Format
+
+French variant (use when `note.md` is in French):
 
 ```markdown
 # Questions / décisions en attente : <feature>
@@ -95,18 +101,50 @@ tranchée par spec-workflow:ticket-plan.
 End with a "Hors ticket pour l'instant" section for anything explicitly
 deferred rather than resolved.
 
+English variant (use when `note.md` is in English):
+
+```markdown
+# Open questions / pending decisions: <feature>
+
+Status: `OPEN` / `RESOLVED`. Fill in "Decision" and a non-empty "Why" once
+resolved: a decision with no "Why" isn't considered resolved by
+spec-workflow:ticket-plan.
+
+---
+
+## N. <short title>
+
+**Type**: factual / tradeoff
+
+**Context**: <observed facts, with `file:line`>
+
+**Question**: <a single precise question>
+
+**Status**: OPEN
+**Decision**:
+**Why**:
+
+---
+```
+
+End with a "Deferred, not in this ticket" section for anything explicitly
+deferred rather than resolved.
+
 ## Common Mistakes
 
 - Skipping a checklist row because the note didn't mention it: the note is
   written by someone who may not know to mention it either, that's exactly
   why the checklist exists independent of the note's content.
-- Answering the questions yourself instead of leaving them OUVERT: this
-  skill surfaces decisions, it doesn't make them.
-- Producing free-form prose instead of the numbered Context/Question/Statut
+- Answering the questions yourself instead of leaving them open: this skill
+  surfaces decisions, it doesn't make them.
+- Producing free-form prose instead of the numbered Context/Question/Status
   format: a baseline test without this skill did exactly that, and it's
   harder to track resolution over multiple rounds.
 - Not comparing against the closest existing precedent when one exists:
   re-derives decisions from scratch that were already made once.
-- Tagging every question **arbitrage** (or every question **factuelle**) to
-  save time: the tag is only useful if it's an honest read of what the
-  question actually demands.
+- Mixing languages between `note.md` and `questions.md`, or within
+  `questions.md` itself: pick the language from `note.md` once and stay in
+  it for the whole file.
+- Tagging every question a tradeoff (or every question factual) to save
+  time: the tag is only useful if it's an honest read of what the question
+  actually demands.

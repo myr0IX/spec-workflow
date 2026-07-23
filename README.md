@@ -23,6 +23,14 @@ note.md  →  questions.md  →  ticket.md + plan.md
 The user makes every product/architecture decision. The skills only
 scaffold, surface gaps, and write down what was already decided.
 
+## Language
+
+Templates exist in French and English today (`templates/fr/`,
+`templates/en/` in each skill). `spec-workflow:start` picks the language
+that matches how you write to it; every later stage matches whatever
+language `note.md` was written in, it doesn't re-detect from the current
+conversation. Any language other than French defaults to English.
+
 ## Why this design
 
 Recent research on LLM use and critical thinking (MIT Media Lab's "Your
@@ -63,28 +71,30 @@ Ask Claude to start a spec for the feature you're about to build:
 
 Claude will ask for a feature slug (kebab-case) and a specs root folder if
 it isn't obvious from context, create `<root>/<slug>/`, and copy the
-`note.template.md` scaffold there as `note.md`.
+matching-language `note.template.md` scaffold there as `note.md`.
 
 **`note.md` is yours to fill in, not Claude's.** The skill deliberately
 stops after copying the template, it does not pre-fill guesses about your
-feature. The template has 5 sections:
+feature. The template has 5 sections (French header, English header):
 
-- **Fichiers concernés**: every relevant file/function, tagged `[plomberie]`
-  (plain interface) or `[risqué]` (real business logic). Before closing this
-  list, check explicitly for the two traps that get skipped most often: a
+- **Fichiers concernés / Files involved**: every relevant file/function,
+  tagged `[plomberie]`/`[plumbing]` (plain interface) or
+  `[risqué]`/`[risky]` (real business logic). Before closing this list,
+  check explicitly for the two traps that get skipped most often: a
   webhook/callback the "obvious" files don't call, and any file that touches
   money (credits, billing, débit). If you've spotted a file you don't have
   time to dig into yourself, note that explicitly and ask Claude to analyze
   it for this section, you're still the one deciding what goes in, you're
   just delegating the legwork on that one file.
-- **Que faire**: the objective, in 2-3 sentences.
-- **Pour qui ?**: the persona using this feature and what it does or doesn't
-  have access to (e.g. no UI, no human session). This alone often settles
-  flow questions later.
-- **Hors scope**: what you're explicitly NOT doing, stated now so it doesn't
-  resurface as an open question later.
-- **Précédent similaire**: the closest existing feature/spec to use as a
-  structural reference, or an explicit "none" if there isn't one.
+- **Que faire / What to do**: the objective, in 2-3 sentences.
+- **Pour qui ? / For whom?**: the persona using this feature and what it
+  does or doesn't have access to (e.g. no UI, no human session). This alone
+  often settles flow questions later.
+- **Hors scope / Out of scope**: what you're explicitly NOT doing, stated
+  now so it doesn't resurface as an open question later.
+- **Précédent similaire / Similar precedent**: the closest existing
+  feature/spec to use as a structural reference, or an explicit "none" if
+  there isn't one.
 
 Do the research yourself (read the actual files, not just titles) before
 moving to the next stage. The quality of `questions.md` and the final
@@ -98,27 +108,29 @@ Once `note.md` has real content:
 
 Claude reads `note.md` and every file it references, walks a fixed
 checklist (execution model, money, idempotence, minimal DTO, vocabulary
-traps...), and writes `questions.md`: one numbered, grounded (`fichier:ligne`)
-question per open decision, each starting as `OUVERT` and tagged **factuelle**
-(a lookup settles it) or **arbitrage** (it needs actual judgment, not a
-reflex answer). You answer them by filling in **Décision** and a non-empty
-**Pourquoi**, then flipping **Statut** to `TRANCHÉ`. Re-running this skill
-later only appends new questions from new note content, it never touches or
-renumbers existing entries.
+traps...), and writes `questions.md` in the same language as `note.md`: one
+numbered, grounded (`file:line`) question per open decision, each starting
+as `OUVERT`/`OPEN` and tagged **factuelle**/**factual** (a lookup settles
+it) or **arbitrage**/**tradeoff** (it needs actual judgment, not a reflex
+answer). You answer them by filling in **Décision**/**Decision** and a
+non-empty **Pourquoi**/**Why**, then flipping the status to
+`TRANCHÉ`/`RESOLVED`. Re-running this skill later only appends new
+questions from new note content, it never touches or renumbers existing
+entries.
 
 ### 3. `spec-workflow:ticket-plan`: write the ticket and plan
 
-Only once every entry in `questions.md` reads `TRANCHÉ`:
+Only once every entry in `questions.md` reads resolved (`TRANCHÉ`/`RESOLVED`):
 
 > Use spec-workflow:ticket-plan on <slug>.
 
 Before writing anything, Claude will ask you to restate 2-3 of your
-`TRANCHÉ` decisions from memory, without rereading `questions.md`. This
+resolved decisions from memory, without rereading `questions.md`. This
 isn't busywork: if you can't recall a decision you supposedly made, that's a
 sign it was rubber-stamped rather than actually reasoned through, and worth
 revisiting before it gets locked into a ticket.
 
-Claude then writes `ticket.md` and `plan.md` from the resolved decisions. If
-any question is still `OUVERT`, or `TRANCHÉ` with an empty `Pourquoi`, it
-stops and lists exactly which ones instead of guessing: this is the one hard
-gate in the whole flow.
+Claude then writes `ticket.md` and `plan.md`, in the same language as
+`note.md`, from the resolved decisions. If any question is still
+open, or resolved with an empty reason field, it stops and lists exactly
+which ones instead of guessing: this is the one hard gate in the whole flow.
