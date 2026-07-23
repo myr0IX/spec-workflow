@@ -2,7 +2,7 @@
 name: start
 description: >-
   Use when kicking off a new feature that needs a written spec before
-  implementation — scaffolds a dedicated specs folder with a guided
+  implementation: scaffolds a dedicated specs folder with a guided
   note-taking template (note.md). Use even for features that feel small;
   the template's checklist catches hidden async/webhook mechanisms and
   money-touching files that are easy to skip when writing notes quickly.
@@ -12,10 +12,10 @@ description: >-
 
 ## Overview
 
-First step of a 4-stage flow: `note.md` (this skill) → `questions.md`
-(**spec-workflow:analyze**) → `ticket.md` + `plan.md`
+First step of a 4-stage flow: `note.md` (this skill), then `questions.md`
+(**spec-workflow:analyze**), then `ticket.md` + `plan.md`
 (**spec-workflow:ticket-plan**). This skill only scaffolds the folder and
-the note-taking template — it does not analyze anything yet.
+the note-taking template, it does not analyze anything yet.
 
 ## When to Use
 
@@ -32,13 +32,19 @@ already written (use **spec-workflow:analyze** directly instead).
    obvious.
 2. Create `<root>/<slug>/`.
 3. Copy `templates/note.template.md` to `<root>/<slug>/note.md`.
-4. Tell the user the file is ready to fill in — do not fill it in yourself,
-   this is the user's own research to do.
+4. Tell the user the file is ready to fill in. Do not fill it in yourself,
+   this is the user's own research to do. If the user explicitly asks you
+   to dig into a specific file they've already identified (they know it
+   matters but don't have time to read it themselves), that's fine, do that
+   one piece of legwork for them. The line is: you never decide what goes
+   in `note.md` on the user's behalf, but you can do delegated research work
+   they explicitly ask for.
 
 ## Common Mistakes
 
-- Pre-filling the note with guesses about the feature — the whole point is
-  the user's own research (cf. the workflow this skill is part of: the user
-  does the investigation, the assistant writes/advises from it).
-- Creating `questions.md`/`ticket.md`/`plan.md` at this stage — they don't
-  exist until there's real content to analyze.
+- Pre-filling the note with unprompted guesses about the feature: the whole
+  point is the user's own research (cf. the workflow this skill is part of:
+  the user does the investigation and decisions, the assistant writes or
+  advises from it, or does specific delegated digging when asked).
+- Creating `questions.md`, `ticket.md`, or `plan.md` at this stage: they
+  don't exist until there's real content to analyze.

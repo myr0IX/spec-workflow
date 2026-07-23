@@ -1,4 +1,4 @@
-# <Feature> — <une ligne d'objectif>
+# <Feature> : <une ligne d'objectif>
 
 ⏱️ **Estimation : <N jours>** (<résumé des grosses pièces : N endpoints + migration + tests bout-en-bout...>)
 
@@ -8,11 +8,11 @@
 Mentionne les dépendances sur d'autres tickets s'il y en a. -->
 
 Contexte : <!-- ce qui existe déjà (webapp, service tiers...) et ce que ce ticket
-expose/durcit/centralise — pas une réinvention. -->
+expose/durcit/centralise, pas une réinvention. -->
 
 **Décisions produit tranchées :**
 <!-- Une par ligne, format court, chacune traçable à une entrée TRANCHÉ de questions.md.
-Ne pas réexpliquer le raisonnement complet ici — juste la décision, le détail est dans
+Ne pas réexpliquer le raisonnement complet ici, juste la décision, le détail est dans
 questions.md. -->
 - <décision 1>
 - <décision 2>
@@ -22,7 +22,7 @@ questions.md. -->
 <!-- Fichiers/routes qui donnent le contexte nécessaire, avec ce qu'il faut en retenir
 en une ligne chacun. Inclure le précédent similaire si un existe. -->
 
-- `<fichier>` — <ce qu'il faut en retenir>
+- `<fichier>` : <ce qu'il faut en retenir>
 
 ## Fichiers à créer / modifier
 
@@ -36,14 +36,14 @@ en une ligne chacun. Inclure le précédent similaire si un existe. -->
 <!-- Ajouter une section piège (🪤) seulement s'il y a un vrai piège de vocabulaire/
 convention interne à démêler avant de coder (ex: naming trompeur entre couches). -->
 
-## Plan d'implémentation — dans cet ordre (1 étape = 1 commit)
+## Plan d'implémentation : dans cet ordre (1 étape = 1 commit)
 
-### Étape 1 — <titre> — scope `<scopes>`
+### Étape 1 : <titre> (scope `<scopes>`)
 
 **Ce qu'il faut faire** : <!-- description actionnable, pas de prose vague -->
 
 **Pour quoi / pour qui** : <!-- pourquoi cette approche plutôt qu'une alternative
-évidente — référence la décision tranchée correspondante si utile -->
+évidente, référence la décision tranchée correspondante si utile -->
 
 ✅ **Validation** : <!-- ce qui prouve que l'étape marche, cas nominal + cas d'erreur -->
 
@@ -58,7 +58,7 @@ convention interne à démêler avant de coder (ex: naming trompeur entre couche
 
 ## Checklist sécu
 
-<!-- Seulement les points réellement applicables — ne pas copier une checklist
+<!-- Seulement les points réellement applicables, ne pas copier une checklist
 générique si un point ne s'applique pas à cette feature. -->
 
 - [ ] <point de sécu applicable>

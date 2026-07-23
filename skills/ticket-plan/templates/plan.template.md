@@ -1,4 +1,4 @@
-# Plan dev — <Feature>
+# Plan dev : <Feature>
 
 Voir `ticket.md` pour l'objectif, les décisions produit et les critères d'acceptation.
 Ce fichier couvre l'exécution : fichiers touchés, étapes/commits, tests, vérification.
@@ -9,9 +9,9 @@ Ce fichier couvre l'exécution : fichiers touchés, étapes/commits, tests, vér
 <même liste que ticket.md, tenue synchronisée>
 ```
 
-## Plan d'implémentation — dans cet ordre (1 étape = 1 commit)
+## Plan d'implémentation : dans cet ordre (1 étape = 1 commit)
 
-### Étape 1 — <titre> — scope `<scopes>`
+### Étape 1 : <titre> (scope `<scopes>`)
 
 **Quoi** : <!-- reprend le "Ce qu'il faut faire" du ticket, reformulé exécution -->
 

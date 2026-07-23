@@ -12,17 +12,17 @@ description: >-
 
 ## Overview
 
-Second step of the note.md → questions.md → ticket.md/plan.md flow (see
+Second step of the note.md, questions.md, ticket.md/plan.md flow (see
 **spec-workflow:start** for stage 1, **spec-workflow:ticket-plan** for
 stage 3). Turns a raw note into a grounded list of open decisions the user
-needs to make before a ticket can be written — the user decides, this skill
+needs to make before a ticket can be written. The user decides, this skill
 only surfaces and grounds the questions.
 
 ## When to Use
 
 - `note.md` exists in a feature's specs folder and has real content
 - The user wants to know "what's missing before I can write a ticket"
-- `questions.md` already exists but new raw notes were added — re-run to pick
+- `questions.md` already exists but new raw notes were added, re-run to pick
   up new gaps only
 
 ## Process
@@ -31,15 +31,21 @@ only surfaces and grounds the questions.
 2. Look for a "Précédent similaire" pointer; if present, read that
    feature's `ticket.md`/`plan.md` as a structural reference for what kinds
    of decisions tend to matter (scopes, idempotence, error handling...).
-3. Walk the checklist below explicitly — for each row, decide if it applies
+3. Walk the checklist below explicitly, for each row, decide if it applies
    here, and if unclear, that's a candidate question. A baseline test run
    without this checklist found gaps in exactly these categories, so treat
    it as required, not optional.
 4. For each real gap: write one question in the format below, grounded in
-   `fichier:ligne`. One question = one decision, not a bundle.
+   `fichier:ligne`. One question = one decision, not a bundle. Tag it
+   **factuelle** if a lookup or a single grep settles it, or **arbitrage**
+   if it needs actual judgment (a tradeoff, a product call, something a
+   lookup can't resolve). This distinction is for the user: not every entry
+   in `questions.md` deserves the same level of attention, and treating a
+   real arbitrage as if it were a quick lookup is how decisions get
+   rubber-stamped instead of made.
 5. If `questions.md` already exists, append only new questions (don't touch
    existing entries, don't renumber). Do this directly, no need to ask
-   permission first — that's what the file is for.
+   permission first, that's what the file is for.
 6. If `questions.md` doesn't exist yet, create it with the header below.
 
 ## Checklist (walk every row)
@@ -63,13 +69,17 @@ only surfaces and grounds the questions.
 ## Output Format
 
 ```markdown
-# Questions / décisions en attente — <feature>
+# Questions / décisions en attente : <feature>
 
-Statut : `OUVERT` / `TRANCHÉ`. Remplir "Décision" + laisser "Pourquoi" quand tranché.
+Statut : `OUVERT` / `TRANCHÉ`. Remplir "Décision" et un "Pourquoi" non vide
+quand tranché : une décision sans "Pourquoi" n'est pas considérée comme
+tranchée par spec-workflow:ticket-plan.
 
 ---
 
 ## N. <titre court>
+
+**Type** : factuelle / arbitrage
 
 **Contexte** : <faits observés, avec `fichier:ligne`>
 
@@ -87,13 +97,16 @@ deferred rather than resolved.
 
 ## Common Mistakes
 
-- Skipping a checklist row because the note didn't mention it — the note is
-  written by someone who may not know to mention it either; that's exactly
+- Skipping a checklist row because the note didn't mention it: the note is
+  written by someone who may not know to mention it either, that's exactly
   why the checklist exists independent of the note's content.
-- Answering the questions yourself instead of leaving them OUVERT — this
+- Answering the questions yourself instead of leaving them OUVERT: this
   skill surfaces decisions, it doesn't make them.
 - Producing free-form prose instead of the numbered Context/Question/Statut
-  format — a baseline test without this skill did exactly that, and it's
+  format: a baseline test without this skill did exactly that, and it's
   harder to track resolution over multiple rounds.
-- Not comparing against the closest existing precedent when one exists —
+- Not comparing against the closest existing precedent when one exists:
   re-derives decisions from scratch that were already made once.
+- Tagging every question **arbitrage** (or every question **factuelle**) to
+  save time: the tag is only useful if it's an honest read of what the
+  question actually demands.

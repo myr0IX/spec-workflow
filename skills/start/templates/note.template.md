@@ -2,7 +2,7 @@
 Comment remplir ce fichier :
 - Remplace chaque section entre <!-- --> par ton propre contenu, puis supprime le commentaire.
 - Le but n'est pas d'être exhaustif au mot près, mais de ne pas sauter les catégories
-  ci-dessous — ce sont exactement celles qui ont généré des allers-retours la dernière fois.
+  ci-dessous : ce sont exactement celles qui ont généré des allers-retours la dernière fois.
 -->
 
 # Fichiers concernés
@@ -27,7 +27,7 @@ Avant de clore cette liste, vérifie explicitement (les 2 pièges les plus fréq
 
 # Pour qui ?
 
-<!-- Le persona qui utilisera cette feature — ce qu'il sait déjà, ce qu'il n'a pas
+<!-- Le persona qui utilisera cette feature, ce qu'il sait déjà, ce qu'il n'a pas
 (ex: pas d'interface, pas de contexte de session humaine). Ça tranche souvent des
 questions de flux à lui seul (cf. flux script/render podcast : pas de review humaine
 possible côté client API → pas d'étape d'édition intermédiaire à exposer). -->
