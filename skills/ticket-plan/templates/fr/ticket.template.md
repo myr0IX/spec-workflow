@@ -11,16 +11,23 @@ Contexte : <!-- ce qui existe déjà (webapp, service tiers...) et ce que ce tic
 expose/durcit/centralise, pas une réinvention. -->
 
 **Décisions produit tranchées :**
-<!-- Une par ligne, format court, chacune traçable à une entrée TRANCHÉ de questions.md.
-Ne pas réexpliquer le raisonnement complet ici, juste la décision, le détail est dans
-questions.md. -->
-- <décision 1>
-- <décision 2>
+<!-- Une par ligne, décision + pourquoi en une phrase courte (le "Pourquoi" de l'entrée
+TRANCHÉ correspondante de questions.md, condensé). Le ticket doit se lire seul : ne jamais
+renvoyer vers questions.md pour comprendre une décision, et ne pas citer les numéros
+Q<n> dans le texte final (questions.md reste l'historique des options considérées, pas
+une lecture requise pour implémenter). -->
+- <décision 1> — <pourquoi, en une phrase>
+- <décision 2> — <pourquoi, en une phrase>
 
 ## À lire avant de commencer
 
-<!-- Fichiers/routes qui donnent le contexte nécessaire, avec ce qu'il faut en retenir
-en une ligne chacun. Inclure le précédent similaire si un existe. -->
+<!-- Seulement les fichiers réellement structurants pour comprendre le ticket dans son
+ensemble : le précédent exact à mirror, une convention interne non-évidente, le contrat
+tiers. Ne PAS lister tout fichier que l'implémentation va toucher ou croiser (ça, c'est
+le rôle de "Fichiers à créer / modifier" et du détail de chaque étape) : si un fichier
+n'aide qu'une fois l'étape correspondante en cours, laisse-le dans l'étape, pas ici. Viser
+le plus petit ensemble qui rend le ticket compréhensible, pas une couverture exhaustive.
+Inclure le précédent similaire si un existe. -->
 
 - `<fichier>` : <ce qu'il faut en retenir>
 

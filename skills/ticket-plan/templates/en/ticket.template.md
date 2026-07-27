@@ -11,16 +11,23 @@ Context: <!-- what already exists (webapp, third-party service...) and what this
 ticket exposes/hardens/centralizes, not a reinvention. -->
 
 **Resolved product decisions:**
-<!-- One per line, short format, each traceable to a RESOLVED entry in questions.md.
-Don't re-explain the full reasoning here, just the decision, the detail is in
-questions.md. -->
-- <decision 1>
-- <decision 2>
+<!-- One per line, decision + why in one short clause (the "Why" of the matching
+RESOLVED entry in questions.md, condensed). The ticket must read standalone: never
+point back to questions.md to understand a decision, and don't cite Q<n> numbers in
+the final text (questions.md stays the historical record of options considered, not
+required reading to implement). -->
+- <decision 1> — <why, in one clause>
+- <decision 2> — <why, in one clause>
 
 ## Read before starting
 
-<!-- Files/routes that give the necessary context, with what to remember in
-one line each. Include the similar precedent if one exists. -->
+<!-- Only files that are genuinely load-bearing to understand the ticket as a whole:
+the exact precedent to mirror, a non-obvious internal convention, the third-party
+contract. Do NOT list every file the implementation will touch or cross-reference
+(that's what "Files to create / modify" and each step's own detail are for): if a
+file only helps once its matching step is underway, leave it there, not here. Aim for
+the smallest set that makes the ticket understandable, not exhaustive coverage.
+Include the similar precedent if one exists. -->
 
 - `<file>`: <what to remember>
 

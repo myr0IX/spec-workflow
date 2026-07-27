@@ -57,7 +57,14 @@ non-empty reason field (`Pourquoi` / `Why`).
    `plan.md` from `templates/<lang>/plan.template.md` (same directory as
    this skill, `<lang>` from step 1). Every resolved decision listed in the
    ticket must trace back to a specific resolved entry in `questions.md`:
-   don't introduce a decision that isn't there.
+   don't introduce a decision that isn't there. `ticket.md` must be readable
+   on its own: inline the one-clause "why" behind each decision instead of
+   pointing back at `questions.md`, and don't cite `Q<n>` numbers in the
+   output — `questions.md` is the historical record, never required reading
+   to act on the ticket. Keep "Read before starting" to the files that are
+   genuinely load-bearing for understanding the whole ticket; file-specific
+   detail that only matters once a given step is underway belongs in that
+   step, not in the reading list.
 8. Do not touch any implementation code, this skill only writes the two
    markdown files.
 
@@ -82,3 +89,9 @@ non-empty reason field (`Pourquoi` / `Why`).
   implies (e.g. a migration step must come before the endpoint that needs
   the new column): verify the plan is actually executable top-to-bottom.
 - Leaving template placeholders (`<...>`) unfilled in the output.
+- Citing `Q<n>` in `ticket.md` instead of inlining the reasoning, or writing
+  "see questions.md" for a decision's rationale: the ticket must stand
+  alone for whoever picks it up next.
+- Padding "Read before starting" with every file the implementation touches:
+  list only what's needed to understand the ticket's shape before diving
+  in, and let each step's own text carry its own implementation detail.
