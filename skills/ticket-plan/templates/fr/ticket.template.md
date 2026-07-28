@@ -11,11 +11,16 @@ Contexte : <!-- ce qui existe déjà (webapp, service tiers...) et ce que ce tic
 expose/durcit/centralise, pas une réinvention. -->
 
 **Décisions produit tranchées :**
-<!-- Une par ligne, décision + pourquoi en une phrase courte (le "Pourquoi" de l'entrée
-TRANCHÉ correspondante de questions.md, condensé). Le ticket doit se lire seul : ne jamais
-renvoyer vers questions.md pour comprendre une décision, et ne pas citer les numéros
-Q<n> dans le texte final (questions.md reste l'historique des options considérées, pas
-une lecture requise pour implémenter). -->
+<!-- Seulement les décisions transverses, sans étape dédiée où les caser (ex : choix
+d'architecture globale, périmètre produit). Si une décision TRANCHÉ de questions.md
+correspond 1:1 à une étape du plan, sa rationale vit dans le "Pour quoi / pour qui" de
+cette étape et ne doit PAS être répétée ici — chaque décision n'a qu'un seul endroit où
+vivre dans le ticket. Une par ligne, décision + pourquoi en une phrase courte (le
+"Pourquoi" de l'entrée TRANCHÉ correspondante, condensé). Le ticket doit se lire seul :
+ne jamais renvoyer vers questions.md pour comprendre une décision, et ne pas citer les
+numéros Q<n> dans le texte final (questions.md reste l'historique des options
+considérées, pas une lecture requise pour implémenter). Si aucune décision n'est
+vraiment transverse, supprime la section entière plutôt que de la remplir par défaut. -->
 - <décision 1> — <pourquoi, en une phrase>
 - <décision 2> — <pourquoi, en une phrase>
 

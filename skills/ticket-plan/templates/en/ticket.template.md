@@ -11,11 +11,16 @@ Context: <!-- what already exists (webapp, third-party service...) and what this
 ticket exposes/hardens/centralizes, not a reinvention. -->
 
 **Resolved product decisions:**
-<!-- One per line, decision + why in one short clause (the "Why" of the matching
-RESOLVED entry in questions.md, condensed). The ticket must read standalone: never
-point back to questions.md to understand a decision, and don't cite Q<n> numbers in
-the final text (questions.md stays the historical record of options considered, not
-required reading to implement). -->
+<!-- Only cross-cutting decisions that have no single dedicated step to live in (e.g.
+overall architecture choice, product scope). If a RESOLVED decision in questions.md
+maps 1:1 to a plan step, its rationale lives in that step's "Why / for whom" and must
+NOT be repeated here — each decision has exactly one place to live in the ticket. One
+per line, decision + why in one short clause (the "Why" of the matching RESOLVED
+entry, condensed). The ticket must read standalone: never point back to questions.md
+to understand a decision, and don't cite Q<n> numbers in the final text (questions.md
+stays the historical record of options considered, not required reading to
+implement). If no decision is genuinely cross-cutting, delete the section entirely
+rather than filling it by default. -->
 - <decision 1> — <why, in one clause>
 - <decision 2> — <why, in one clause>
 

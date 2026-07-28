@@ -64,7 +64,13 @@ non-empty reason field (`Pourquoi` / `Why`).
    to act on the ticket. Keep "Read before starting" to the files that are
    genuinely load-bearing for understanding the whole ticket; file-specific
    detail that only matters once a given step is underway belongs in that
-   step, not in the reading list.
+   step, not in the reading list. Each resolved decision gets exactly one
+   home: if it maps 1:1 to a single implementation step, its rationale
+   belongs in that step's "Why / for whom" only — do not also list it under
+   "Resolved product decisions". That section is for decisions with no
+   single step to live in (architecture-wide, product-scope); if none
+   qualify, delete the section rather than filling it by transcribing every
+   `RESOLVED` entry from `questions.md`.
 8. Do not touch any implementation code, this skill only writes the two
    markdown files.
 
@@ -95,3 +101,7 @@ non-empty reason field (`Pourquoi` / `Why`).
 - Padding "Read before starting" with every file the implementation touches:
   list only what's needed to understand the ticket's shape before diving
   in, and let each step's own text carry its own implementation detail.
+- Transcribing every `RESOLVED` entry from `questions.md` into "Resolved
+  product decisions" by default: most decisions map to a single step and
+  belong only in that step's "Why / for whom" — repeating them at the top
+  produces a ticket where every rationale is written twice.
