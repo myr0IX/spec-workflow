@@ -52,7 +52,10 @@ non-empty reason field (`Pourquoi` / `Why`).
    just skim it for vibes.
 6. Explore the current codebase for every `file:line` cited in
    `questions.md`: they were written during the Q&A session and may be
-   stale. Refresh before citing them in the ticket.
+   stale. Refresh before citing them in the ticket. Entries grounded in a
+   doc reference instead (greenfield features, see **spec-workflow:analyze**)
+   have nothing to refresh here — re-read the cited doc section instead if
+   the source doc may have changed since.
 7. Write `ticket.md` from `templates/<lang>/ticket.template.md` and
    `plan.md` from `templates/<lang>/plan.template.md` (same directory as
    this skill, `<lang>` from step 1). Every resolved decision listed in the

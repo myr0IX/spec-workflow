@@ -8,14 +8,22 @@ Comment remplir ce fichier :
 # Fichiers concernés
 
 <!--
-Pour chaque fichier/fonction pertinent, une ligne : chemin + ce qu'il fait, tagué :
+Projet existant : pour chaque fichier/fonction pertinent, une ligne : chemin +
+ce qu'il fait, tagué :
 - [plomberie] : juste une interface, rien de spécial à en dire
 - [risqué] : logique métier, calcul, ou comportement non trivial
+
+Projet greenfield (aucun code existant pour cette feature) : écris-le
+explicitement ("Pas de code existant, projet greenfield") plutôt que de
+laisser la section vide, puis liste les fichiers/modules qu'on prévoit de
+créer avec le même tag [plomberie]/[risqué] appliqué au rôle prévu de
+chaque module (le tag porte sur la nature du composant, pas sur le fait
+qu'il existe déjà).
 
 Avant de clore cette liste, vérifie explicitement (les 2 pièges les plus fréquents) :
 1. Y a-t-il un webhook / callback async quelque part dans le dossier de la feature,
    même s'il n'est appelé par aucun des fichiers "évidents" ? (grep sur "webhook" dans
-   le dossier api concerné)
+   le dossier api concerné — en greenfield, vérifie plutôt si le flux prévu en implique un)
 2. Un des fichiers touche-t-il à l'argent (credits, billing, facturation, débit) ?
    Ces deux éléments sont presque toujours ceux qu'on oublie de lister alors qu'ils
    pèsent le plus sur les décisions d'architecture.

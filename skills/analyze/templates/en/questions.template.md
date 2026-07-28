@@ -16,7 +16,7 @@ spec-workflow:ticket-plan.
 
 **Type**: factual / tradeoff
 
-**Context**: <observed facts, with `file:line`>
+**Context**: <observed facts, with `file:line`; if greenfield/no existing code, cite the source instead, e.g. `PRODUCT.md, section HOW` or `note.md, section Architecture`>
 
 **Question**: <a single precise question>
 

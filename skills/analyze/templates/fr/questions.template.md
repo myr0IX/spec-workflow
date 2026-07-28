@@ -17,7 +17,7 @@ tranchée par spec-workflow:ticket-plan.
 
 **Type** : factuelle / arbitrage
 
-**Contexte** : <faits observés, avec `fichier:ligne`>
+**Contexte** : <faits observés, avec `fichier:ligne` ; si greenfield/pas de code existant, référence la source à la place, ex `PRODUCT.md, section COMMENT` ou `note.md, section Architecture`>
 
 **Question** : <une seule question précise>
 

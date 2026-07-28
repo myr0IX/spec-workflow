@@ -42,14 +42,18 @@ only surfaces and grounds the questions.
    without this checklist found gaps in exactly these categories, so treat
    it as required, not optional.
 5. For each real gap: write one question following the "## N." block in
-   `templates/<lang>/questions.template.md`, grounded in `file:line`. One
-   question = one decision, not a bundle. Tag it factual (a lookup or a
-   single grep settles it) or a tradeoff (it needs actual judgment: a
-   product call, a real alternative, something a lookup can't resolve).
-   This distinction is for the user: not every entry in `questions.md`
-   deserves the same level of attention, and treating a real tradeoff as if
-   it were a quick lookup is how decisions get rubber-stamped instead of
-   made.
+   `templates/<lang>/questions.template.md`, grounded in `file:line`. If
+   there's no existing code to cite (greenfield feature, or a codebase-wide
+   convention that doesn't exist yet), ground it instead in the source doc
+   and section that raised the question (e.g. `PRODUCT.md, section COMMENT`
+   or `note.md, section Architecture`) — `file:line` is the default grounding
+   when code exists, not a hard requirement when it doesn't. One question =
+   one decision, not a bundle. Tag it factual (a lookup or a single grep
+   settles it) or a tradeoff (it needs actual judgment: a product call, a
+   real alternative, something a lookup can't resolve). This distinction is
+   for the user: not every entry in `questions.md` deserves the same level
+   of attention, and treating a real tradeoff as if it were a quick lookup
+   is how decisions get rubber-stamped instead of made.
 6. If `questions.md` already exists, append only new questions (don't touch
    existing entries, don't renumber). Do this directly, no need to ask
    permission first, that's what the file is for.
@@ -58,20 +62,26 @@ only surfaces and grounds the questions.
 
 ## Checklist (walk every row)
 
+For a greenfield feature (no existing codebase/conventions to check
+against), a row that asks "what's the existing X" doesn't disappear: it
+becomes the question itself ("what convention should we establish for X"),
+tagged as a tradeoff. Don't skip the row just because there's nothing to
+grep yet.
+
 | Category | Ask yourself |
 |---|---|
-| Execution model | Is there a hidden job/poll/webhook not mentioned in the "obvious" files? (grep the feature's api folder for "webhook") |
+| Execution model | Is there a hidden job/poll/webhook not mentioned in the "obvious" files? (grep the feature's api folder for "webhook"; greenfield: does the planned flow imply one that isn't spelled out yet?) |
 | Money | Does any file touch credits/billing/débit? |
-| Entry point | What existing route convention is the closest match to mirror? |
+| Entry point | What existing route convention is the closest match to mirror? (greenfield: no convention exists yet — this becomes "what convention do we establish") |
 | Product split | Does a hidden flag/scope actually hide two distinct features (separate routes vs one param)? |
 | Sync/async flow | How many real steps happen on the third-party service side, where can the client inspect progress? |
 | Client dependencies | Can the client actually obtain everything required (IDs, voices, credentials) without a UI? |
 | Idempotence | What happens on a duplicate call/retry against the same resource? |
-| Intermediate statuses | Does the existing generic job model cover every real status this flow can be in? |
+| Intermediate statuses | Does the existing generic job model cover every real status this flow can be in? (greenfield: does the planned data model even have a status/state concept yet?) |
 | Minimal DTO | Which internal fields must never leak to the client? |
 | Third-party capacity | Does an external service need a concurrency cap? |
 | Validation | Do we replicate the third-party service's constraints in our own schema, or passthrough? |
-| Error sanitization | Do we reuse the existing "never leak raw upstream detail" helper? |
+| Error sanitization | Do we reuse the existing "never leak raw upstream detail" helper? (greenfield: is there even a plan for one, or does every new caller reinvent error handling?) |
 | Vocabulary | Do internal names diverge from public-facing names (a naming trap)? |
 
 ## Common Mistakes
