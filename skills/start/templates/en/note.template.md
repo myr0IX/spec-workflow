@@ -33,6 +33,19 @@ Before closing this list, explicitly check (the 2 most frequent traps):
 
 <!-- Objective in 2-3 sentences: what should exist at the end. -->
 
+# How
+
+<!-- High-level technical approach, ONLY what's already decided: which
+component does what, how the pieces fit together (e.g. "separate Python
+service that writes directly to the database, the backend only reads").
+No code, no schema, no interface signature: that's spec-workflow:ticket-plan's
+job once questions.md is resolved.
+
+If a piece of the "how" isn't decided yet, do NOT write it here as if it
+were settled: leave it out, spec-workflow:analyze will surface it as a
+question in questions.md instead. This section only holds decisions already
+made, never an assumption or a default choice. -->
+
 # For whom?
 
 <!-- The persona who will use this feature, what they already know, what they

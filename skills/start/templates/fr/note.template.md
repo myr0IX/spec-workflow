@@ -33,6 +33,19 @@ Avant de clore cette liste, vérifie explicitement (les 2 pièges les plus fréq
 
 <!-- Objectif en 2-3 phrases : qu'est-ce qui doit exister à la fin. -->
 
+# Comment
+
+<!-- Approche technique de haut niveau, SEULEMENT ce qui est déjà tranché :
+quel composant fait quoi, comment les pièces s'articulent (ex : "service Python
+séparé qui écrit directement en base, le backend ne fait que lire"). Pas de
+code, pas de schéma, pas de signature d'interface : ça, c'est le travail de
+spec-workflow:ticket-plan une fois questions.md tranché.
+
+Si un point du "comment" n'est pas encore décidé, ne l'écris PAS ici comme si
+c'était acquis : laisse-le de côté, spec-workflow:analyze le fera remonter
+comme question dans questions.md. Cette section ne doit contenir que des
+décisions déjà prises, jamais une hypothèse ou un choix par défaut. -->
+
 # Pour qui ?
 
 <!-- Le persona qui utilisera cette feature, ce qu'il sait déjà, ce qu'il n'a pas
